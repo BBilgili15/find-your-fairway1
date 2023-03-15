@@ -1,0 +1,955 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+body {
+  /* background-color: rgb(202, 231, 193); */
+  background: linear-gradient(45deg, rgb(202, 231, 193), linen);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+
+/* Base Header CSS */
+.navbar{
+  background-color: rgb(9, 10, 10);
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  display: flex;
+  border-bottom: 5px solid white;
+  padding: 0 10rem;
+  min-width: 1000px;
+}
+
+.head-left{
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.head-image{
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+.site-links{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 35rem;
+  /* background-color: lightblue; */
+}
+
+#head-link{
+   list-style-type: none;
+   font-size: 15px;
+   font-weight: bold;
+   color: white;
+   padding: 2rem; 
+}
+
+.head-link__hello{
+  list-style-type: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: orange;
+  padding: 2rem; 
+}
+
+a{
+  text-decoration: none;
+}
+
+#head-link:hover{
+  cursor: pointer;
+  color: orange;
+  transition: 0.2s;
+}
+
+/* Home Card CSS */
+
+.banner{
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://images.pexels.com/photos/1608383/pexels-photo-1608383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  margin: 0 10rem;
+  min-width: 800px;
+}
+
+.slogan{
+  margin: 1.75rem auto;
+  font-size: 2.75rem;
+  background-color: rgb(9, 10, 10);
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.filter-section{
+  margin: 0.5rem auto;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  /* background-color: lightpink; */
+}
+
+.searchbar{
+  width: 20rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  color: black;
+  font-weight: bold;
+  margin-left: 2rem;
+  border: 2px solid black;
+}
+
+.par-dropdown{
+  width: 10rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  color: black;
+  font-weight: bold;
+  margin-left: 2rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+
+.filter-button{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+  margin-left: 2rem;
+  border-radius: 1rem;
+}
+
+.filter-button:hover{
+  cursor: pointer;
+  background-color: orangered;
+  transition: 0.25s;
+}
+
+.courses{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 10rem;
+  border-top: 5px solid white;
+}
+
+.golf-course__item{
+  width: 90%;
+  min-width: 225px;
+  list-style-type: none;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 3px 4px 5px rgba(0,0,0,0.3);
+  text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+
+.golf-course__item:hover{
+  background-color: orange;
+  color: white;
+  transition: 0.25s;
+}
+
+.golf-course__content{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.golf-course__image{
+  width: 100%;
+  height: 200px;
+  display: block;
+  object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.golf-course__name{
+  margin-bottom: 0.25rem;
+}
+
+.golf-course__info{
+  font-weight: 100;
+}
+
+
+/* Course Details CSS */
+
+.course-details__banner{
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  background-size: cover;
+  margin: 0 10rem;
+  min-width: 800px;
+  background-image: url(https://images.pexels.com/photos/914682/pexels-photo-914682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-position: center;
+  height: 15rem;
+  border-bottom: 5px solid white;
+}
+
+.overlay{
+  position: absolute; 
+  background: rgba(19, 19, 19, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 5rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.course-name{
+  color: white;
+  font-size: 3rem;
+}
+
+
+
+
+
+
+.description-and-booking{
+  padding: 2rem;
+  margin: 1rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* background-color: lightcoral; */
+}
+
+.course-full-description{
+  width: 25rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.course-images{
+  /* background-color: lightblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-images__2-3{
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+}
+
+.course-description__image1{
+  height: 18rem;
+  margin: 0.1rem;
+}
+
+.course-description__image2{
+  height: 9rem;
+  margin: 0.1rem;
+}
+
+.course-description__image3{
+  height: 9rem;
+  margin: 0.1rem;
+}
+
+
+
+.buttons{
+  margin: 0.5rem auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0 4rem;
+}
+
+#add-to-button{
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+  width: 16rem;
+  border-radius: 1rem;
+}
+
+#add-to-button:hover{
+  cursor: pointer;
+  background-color: orangered;
+  transition: 0.25s;
+}
+
+#remove-from-button{
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: lightgrey;
+  color: black;
+  font-weight: bold;
+  width: 16rem;
+  border-radius: 1rem;
+}
+
+#remove-from-button:hover{
+  cursor: pointer;
+  background-color: lightblue;
+  transition: 0.25s;
+}
+
+.reviews-section{
+  margin: 0 10rem;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.subheading{
+  border: 2px solid black;
+  padding: 0.1rem 1rem 0.1rem 1rem;
+  width: 15%;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  background-color: white;
+  text-align: center;
+  border-radius: 1rem;
+  /* box-shadow: 3px 4px 5px rgba(0,0,0,0.3); */
+}
+
+.title-filter{
+  display: flex;
+}
+
+.star-dropdown{
+  width: 7.5rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+
+#ratings-filter-button{
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  margin-left: 1rem;
+  border-radius: 1rem;
+}
+
+#ratings-filter-button:hover{
+  cursor: pointer;
+  background-color: orange;
+  transition: 0.25s;
+}
+
+
+#bold{
+  font-weight: bold;
+}
+
+
+.reviews-section{
+  background-color: lightblue;
+  
+}
+
+
+.review-tile{
+  background-color: white;
+  border: 2px solid black;
+  width: 15%;
+  height: 11rem;
+  margin: 2rem 1rem;
+  padding: 1rem 0.5rem;
+  box-shadow: 3px 4px 5px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+}
+
+.review-stars{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+#star{
+  height: 1.5rem;
+}
+
+.reviews-list{
+  display: flex;
+  gap: 1rem;
+}
+
+.review-date{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.rating-user{
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-description{
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.reviewer-name{
+  font-size: 1rem;
+}
+
+
+
+
+
+/* My Courses CSS */
+
+.bold{
+  font-weight: bold;
+}
+
+.my_courses__body{
+  margin: 0 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-section{
+  background-color: lightblue;
+  display: flex;
+  /* justify-content: space-between; */
+  margin-top: 0.75rem;
+}
+
+#my-courses__section{
+  height: 12rem;  
+  margin: 1rem;
+  align-items: center;
+  display: flex;
+}
+
+.user-passport{
+  background-color: linen;
+  width: 35%;
+  min-width: 450px;
+  border: 5px solid white;    
+  box-shadow: 1px 1px 5px;
+  padding: 1rem 4rem 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-details{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 25%;
+  background-color: lightpink;
+}
+
+.image-name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.placeholder{
+  height: 10rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 5px solid white; 
+  box-shadow: 0.1px 0.1px 5px;
+}
+
+.placeholder:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  border: 5px solid lightgrey; 
+}
+
+.username{
+  font-size: 1.5rem;
+}
+
+.user-information{
+  /* background-color: lightpink; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  font-size: 1.15rem;
+}
+
+.social-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#social-icon{
+  height: 2rem;
+  margin-top: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+
+
+
+#main-tile{
+  height: 55%;
+  width: 10%;
+  min-width: 150px;
+  padding: 0 0.5rem 0 0.5rem;;
+  border-radius: 20%;
+  background-color: linen;
+  border: 5px solid white;
+  box-shadow: 1px 1px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wish-list{
+  border-bottom: 2px solid linen;
+}
+
+.played-list{
+  border-bottom: 2px solid linen;
+}
+
+/* CSS for tiles on my courses */
+.user-list-tiles{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-left: 2rem;
+} 
+
+
+
+.user_golf-course__item{
+  width: 5rem;
+  min-width: 200px;
+  max-height: 225px;
+  list-style-type: none;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 3px 4px 5px rgba(0,0,0,0.3);
+  text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+
+.user_golf-course__item:hover{
+  background-color: orange;
+  color: white;
+  transition: 0.25s;
+}
+
+.user_golf-course__content{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_golf-course__image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.user_golf-course__name{
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.user_golf-course__info{
+  font-weight: 100;
+  font-size: 0.7rem;
+}
+
+
+
+
+#tile-title{
+  margin-top: 0.5rem;
+}
+
+.add-to-button {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: orangered;
+  position: relative;
+}
+
+.add-to-button::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  height: 10px;
+  margin-top: -5px;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  z-index: 9;
+}
+
+.add-to-button::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #fff;
+  width: 10px;
+  margin-left: -5px;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  z-index: 9;
+}
+
+.add-to-button:hover {
+  cursor: pointer;
+  background-color: rgb(221, 62, 4);
+  transition: 0.25s;
+}
+
+
+
+/* Review Page */
+
+.review-page__background{
+  height: 100%;
+  width: 100%;
+  background-image: url(https://images.pexels.com/photos/164250/pexels-photo-164250.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.review-form{
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  margin: 6rem auto;
+  height: 30rem;
+  /* border: 2px solid white; */
+  border-radius: 2rem;
+  padding: 2rem 0 0 0;
+  min-width: 400px;
+}
+
+.review-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-name{
+  color: orange;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.review-description{
+  display: flex;
+  flex-direction: column;
+}
+
+#review-description__label{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+#review-svg{
+  height: 1rem;
+  margin-left: 0.25rem;
+}
+
+.review-description__input{
+  width: 20rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-top: none;
+  /* border-left: none;
+  border-right: none; */
+  border: none;
+  /* border: 2px solid white; */
+  border-radius: 1rem;
+  margin: 0.1rem 1rem 1rem 1rem;
+  max-width: 35rem;
+  max-height: 12.5rem;
+}
+
+.review-score{
+  /* background-color: lightpink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review__select-rating{
+  color: orange;
+  padding: 0.25rem 0.6rem;
+  background: rgba(0, 0, 0, 0.75);
+  border: none;
+}
+
+.review-submit{
+  display: flex;
+  justify-content: center;
+}
+
+.review-submit-button{
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin-top: 2rem;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: black;
+  font-weight: bold;
+  width: 10rem;
+  border-radius: 1rem;
+}
+
+.review-submit-button:hover{
+  cursor: pointer;
+  background-color: orangered;
+  transition: 0.25s;
+}
+
+
+
+
+
+
+
+
+
+
+/* Registration Page */
+
+.reg-container{
+  /* background-color: lightpink; */
+  margin: 2rem 10rem;
+  height: 100vh;
+  display: flex;
+
+}
+
+.reg-content{
+  flex: 1; 
+  background-color: white;
+  display: flex;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 1px 1px 5px;
+}
+
+.reg-form{ 
+  margin: 10rem auto;
+  /* background-color: lightpink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reg-title{
+  margin-right: 10rem;
+  margin-bottom: 1rem;
+  color: rgb(126, 122, 122);
+}
+
+.reg-subtitle{
+  margin-right: 10rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.form-content{
+  display: flex;
+  flex-direction: column;
+  /* background-color: lightblue; */
+  width: 100%;
+  border-top: 2px solid rgb(126, 122, 122);
+  padding-top: 1rem;
+}
+
+.form-items{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.reg-username input{
+  /* border: none; */
+}
+
+#reg-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#reg-item input{
+  width: 75%;
+  margin-left: 25%;
+  margin: 0.4rem auto;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  background-color: rgb(250, 247, 245);
+}
+
+.reg-submit__container{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+}
+
+.reg-submit{
+  width: 75%;
+  margin-left: 25%;
+  margin: 0.75rem auto;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  background-color: orange;
+}
+
+.reg-submit:hover{
+  transition: 0.25s;
+  background-color: orangered;
+  cursor: pointer;
+}
+
+.already-registered__container{
+  /* background-color: lightgray; */
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.login-link{
+  text-decoration: underline;
+  color: black;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.reg-image__section{
+  flex: 1;
+  background-color: white;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 1px 1px 5px;
+}
+
+.reg-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+
+
+
+/* Login CSS */
+
+.login-content{
+  margin: 10rem auto;
+  flex: 1; 
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  
+}
+
+.login-form-content{
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  /* background-color: lightblue; */
+  width: 100%;
+}
+
+
+#login-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin-left: 25%;
+  margin: 1rem auto;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+  background-color: rgb(250, 247, 245);
+}
+
+.login-button{
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin-left: 25%;
+  margin: 0.8rem auto;
+  margin-top: 1rem;
+  padding: 0.5rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+}
+
+
+.login-button:hover{
+  transition: 0.25s;
+  background-color: orangered;
+  cursor: pointer;
+}

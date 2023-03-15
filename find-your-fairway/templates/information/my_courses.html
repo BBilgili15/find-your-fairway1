@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="my_courses__body">
+    <div class="top-section">
+
+        <div class="user-details">
+            <div class="image-name">
+            <img class="placeholder" src="/static/images/profile_pic_ben.jpg" alt="placeholder">
+            <h5 class="username">{{ user.username }}</h5>
+            </div>
+        </div>
+
+        <!-- <div id="my-courses__section" class="user-passport">
+            <div class="user-information">
+                <p><span class="bold">My Handicap</span> | 1.4</p>
+                <p><span class="bold">Courses Played</span> | 49</p>
+                <p><span class="bold">Rank</span> | Seasoned Pro</p>
+            </div>
+        </div> -->
+
+
+        <!-- <div class="social-icons">
+            <a href="#"><img id="social-icon" src="/static/images/Social Media/twitter.png"></a>
+            <a href="#"><img id="social-icon" src="/static/images/Social Media/facebook.png"></a>
+            <a href="#"><img id="social-icon" src="/static/images/Social Media/instagram.png"></a>
+        </div> -->
+
+    </div>
+
+
+    <div id="my-courses__section" class="wish-list">
+        <div id="main-tile" class="wish-list__main-tile">
+            <h4 id="tile-title">WISH LIST</h4>
+            <a href="{% url 'information_home' %}">
+                <div class="add-to-button"></div>
+            </a>
+        </div>
+
+        <div class="user-list-tiles">
+            {% for course in courses_wishlist %}
+            <a class="course-link"  href="{% url 'course_details' course.id %}">
+                <div class="user_golf-course__item">
+                    <img class="user_golf-course__image" src="/static/images/royal_dornoch.jpg">
+                    <div class="user_golf-course__content">
+                        <h3 class="user_golf-course__name">{{ course.name }}</h3>
+                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div id="my-courses__section" class="played-list">
+        <div id="main-tile" class="played-list__main-tile">
+            <h4 id="tile-title">PLAYED LIST</h4>
+            <a href="{% url 'information_home' %}">
+                <div class="add-to-button"></div>
+            </a>
+        </div>
+    
+        <div class="user-list-tiles">
+            {% for course in courses_played_list %}
+            <a class="course-link"  href="{% url 'course_details' course.id %}">
+                <div class="user_golf-course__item">
+                    <img class="user_golf-course__image" src="/static/images/royal_dornoch.jpg">
+                    <div class="user_golf-course__content">
+                        <h3 class="user_golf-course__name">{{ course.name }}</h3>
+                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    
+    </div>
+    
+</section>
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load event_filters %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+
+    <!-- THIS SECTION TO BE CONTINUED - EVERYTHING WILL NEED TO BE DYNAMIC EVENTUALLY -->
+<section class="course-details__banner">
+  <div class="overlay">
+    <h2 class="course-name">{{ course.name }}</h2>
+  </div>
+</section>
+
+<div class="buttons">
+  {% if user.is_authenticated %}
+
+    {% if user|on_wishlist:course %}
+    <form action="{% url 'course_remove_wishlist' course.id %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+    <button type="submit" id="remove-from-button" class="wishlist-button">REMOVE FROM WISHLIST</button>
+    </form>
+
+    {% else %}
+    <form action="{% url 'course_add_wishlist' course.id %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+    <button type="submit" id="add-to-button" class="wishlist-button">ADD TO WISHLIST</button>
+    </form>
+    {% endif %}
+    {% endif %}
+
+
+
+  {% if user.is_authenticated %}
+
+  {% if user|on_playedlist:course %}
+  <form action="{% url 'course_remove_playedlist' course.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+  <button type="submit"  id="remove-from-button" class="played-button">REMOVE FROM PLAYED COURSES</button>
+  </form>
+
+  {% else %}
+  <form action="{% url 'course_add_playedlist' course.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+  <button type="submit"  id="add-to-button" class="played-button">ADD TO PLAYED COURSES</button>
+  </form>
+    {% endif %}
+    {% endif %}
+
+
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'leave_review' course.id %}"><button id="add-to-button" class="leave-review-button">LEAVE A REVIEW</button></a>
+    {% endif %}
+
+
+
+</div>
+
+<div class="description-and-booking">
+  <h4 class="course-full-description">"{{ course.description }}"</h4>
+  <div class="course-images">
+    <img src="/static/images/pexels-kaique-rocha-105253.jpg" class="course-description__image1">
+    <div class="course-images__2-3">
+      <img src="/static/images/pexels-branislav-bednár-5716652.jpg" class="course-description__image2">
+      <img src="/static/images/pexels-matt-barnard-6871278.jpg" class="course-description__image3">
+    </div>
+  </div>  
+</div>    
+      
+      <section class="course-content">
+        <!-- COURSE STATS -->
+        <!-- <div class="course-stats">
+          <p id="stat"><span class="bold">Par</span> | {{ course.par }}</p>
+          <p id="stat"><span class="bold">Founded</span> | {{ course.founded }}</p>
+          <p id="stat"><span class="bold">Rating</span> | {{ course.average_rating }}/5</p>
+          <p id="stat" ><span id="bold"><a href="{{ course.website_link }}">Visit Website Here</a></span></p>
+        </div> -->
+
+        <!-- COURSE ADD TO BUTTONS -->
+
+      </section>
+
+
+
+
+  </div>
+
+      
+  <div class="reviews-section">
+    <div class="title-filter">
+      <h3 class="subheading">All Reviews</h3>
+
+
+      <form method="get"  action="{% url 'course_details' course.id %}"> 
+        <select name="star-rating" class="star-dropdown">
+          <option disabled selected>By Rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <a href="#"><button  id="ratings-filter-button">Clear</button></a>
+        <button type="submit" id="ratings-filter-button">Filter</button>
+        </form>
+
+    </div>
+      <div class="reviews-list">
+        {% for review in reviews %}
+        <div class="review-tile">
+          <div class="review-stars">
+
+            {% for count in reviews_count %}
+            {% if count < review.rating %}
+            <img src="/static/images/star-light-svgrepo-com.svg" id="star">  
+            {% endif %}
+            {% endfor %}
+            
+          </div>
+          <div class="rating-user">
+            <h4 class="reviewer-name">{{ review.reviewer}}</h4>
+            <h6 class="review-date">{{ review.date }}</h6>
+          </div>
+          <div class="review-content">
+            <p class="review-description">"{{ review.description }}"</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+      
+
+
+
+  
+  
+
+{% endblock content %}
+
+

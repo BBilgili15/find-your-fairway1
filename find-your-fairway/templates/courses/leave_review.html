@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="review-page__background">
+  <section class="review-form">
+    <form action="{% url 'add_review' course.id %}" method="POST">
+      {% csrf_token %}
+      <div class="review-heading">
+        <h2 class="review-name">{{ course.name }} Review</h2>
+        <div class="review-description">
+          <label id="review-description__label">Description: <img src="/static/images/write-svgrepo-com (1).svg" id="review-svg"></label>
+          <textarea type="text" name="description" rows="7" class="review-description__input"></textarea>
+        </div>
+      </div>
+      <div class="review-score">
+        <label id="review-description__label">Score: <img src="/static/images/add-comment-svgrepo-com.svg" id="review-svg"></label>
+        <select name="rating" class="review__select-rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <input
+        type="hidden"
+        name="redirect_url"
+        value="{{ request.get_full_path }}"
+      />
+      <div class="review-submit">
+        <button type="submit" class="review-submit-button">Add Review</button>
+      </div>
+    </form>
+  </section>
+</div>
+
+{% endblock content %}

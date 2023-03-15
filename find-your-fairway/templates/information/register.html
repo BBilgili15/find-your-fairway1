@@ -1,0 +1,71 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Base</title>
+</head>
+
+<body>
+
+<section class="reg-container">
+
+
+    <div class="reg-content">
+        <div class="reg-form">
+            <h1 class="reg-title">Find Your Fairway</h1>
+            <h2 class="reg-subtitle">Register Today...</h2>
+            <div class="form-content">
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    
+                    {{ form.non_field_errors }}
+                    <div class="form-items">
+                        <div class="reg-username" id="reg-item">
+                            {{ form.username.errors }}
+                            <!-- <label for="{{ form.username.id_for_label }}">Username</label> -->
+                            {{ form.username }}
+                        </div>
+                        <div class="reg-password" id="reg-item">
+                            {{ form.password1.errors }}
+                            <!-- <label for="{{ form.password1.id_for_label }}">Password</label> -->
+                            {{ form.password1 }}
+                        </div>
+                        <div class="reg-password__confirmation" id="reg-item">
+                            {{ form.password2.errors }}
+                            <!-- <label for="{{ form.password2.id_for_label }}">Password Confirmation</label> -->
+                            {{ form.password2 }}
+
+                        </div>
+                    </div>
+                    
+                    <div class="reg-submit__container">
+                        <input type="submit" name="create-user" class="reg-submit">
+                    </div>
+
+                </form>
+                
+                <div class="already-registered__container">
+                    <a href="{% url 'login' %}" class="login-link"> <p>Take me to login</p></a>
+                </div>
+
+            </div>
+        </div>  
+    </div>  
+
+
+    <div class="reg-image__section">
+        <img src="/static/images/pexels-jopwell-1325668.jpg" class="reg-image">
+    </div>
+
+
+</section>
+</body>
+</html>
+
+{% endblock content %}

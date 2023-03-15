@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="banner">
+  <h2 class="slogan">SEARCH. BOOK. PLAY.</h2>
+
+  <section class="filter-section">
+    <form action="{% url 'information_home' %}" method="get">
+      <input class="searchbar" type="text" name="query" placeholder="Search Course">
+      <select class="par-dropdown"  name="par">
+        <option disabled selected>Course Par</option>
+        <option value="68">68</option>
+        <option value="69">69</option>
+        <option value="70">70</option>
+        <option value="71">71</option>
+        <option value="72">72</option>
+        <option value="73">73</option>
+      </select>
+
+      <a href="{% url 'information_home' %}"><button class="filter-button">Clear</button></a>
+      <button type="submit" class="filter-button">Filter</button>
+    </form>
+  </section>
+</section>
+
+<section class="courses">
+{% for course in courses %}
+
+  <a class="course-link"  href="{% url 'course_details' course.id %}"><div class="golf-course__item">
+      <img class="golf-course__image" src="/static/images/royal_dornoch.jpg">
+      <div class="golf-course__content">
+        <h3 class="golf-course__name">{{ course.name }}</h3>
+        <h4 class="golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+      </div>
+    </div></a>
+    {% endfor %}
+    
+  </section>
+
+
+
+  
+
+
+{% endblock content %}
