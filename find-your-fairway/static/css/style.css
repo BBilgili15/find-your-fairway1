@@ -225,13 +225,19 @@ a{
 
 
 
+.course-db-images{
+  /* background-color: lightgray; */
+  margin: 1rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-
+}
 
 .description-and-booking{
   padding: 2rem;
-  margin: 1rem 10rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   /* background-color: lightcoral; */
@@ -277,12 +283,12 @@ a{
   margin: 0.5rem auto;
   width: 60%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  padding: 0 4rem;
 }
 
-#add-to-button{
+#add-to-button, #remove-from-button{
+  margin-top: 0.5rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: orange;
   color: black;
@@ -312,6 +318,9 @@ a{
   transition: 0.25s;
 }
 
+
+
+
 .reviews-section{
   margin: 0 10rem;
   padding-top: 1rem;
@@ -322,43 +331,58 @@ a{
   justify-content: space-evenly;
 }
 
+
 .subheading{
-  border: 2px solid black;
+  /* border: 2px solid black; */
   padding: 0.1rem 1rem 0.1rem 1rem;
   width: 15%;
   margin-left: 2rem;
   margin-right: 1rem;
-  background-color: white;
+  /* background-color: white; */
   text-align: center;
   border-radius: 1rem;
-  /* box-shadow: 3px 4px 5px rgba(0,0,0,0.3); */
 }
 
 .title-filter{
   display: flex;
+  /* border: 1px solid black; */
+  padding: 0.25rem 0.5rem;
 }
 
-.star-dropdown{
+.review-form-div{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+}
+
+.review-form-div:hover {
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* .star-dropdown{
   width: 7.5rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   color: black;
   font-weight: bold;
   border: 2px solid black;
   border-radius: 1rem;
-}
+} */
 
 #ratings-filter-button{
-  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  background-color: white;
+  /* padding: 0.25rem 0.5rem 0.25rem 0.5rem; */
   color: black;
   font-weight: bold;
-  margin-left: 1rem;
-  border-radius: 1rem;
+  margin: auto 1rem;
+  align-self: center;
+  border: none;
+  background: transparent;
+  /* border-radius: 1rem; */
 }
 
 #ratings-filter-button:hover{
   cursor: pointer;
-  background-color: orange;
   transition: 0.25s;
 }
 
@@ -369,7 +393,8 @@ a{
 
 
 .reviews-section{
-  background-color: lightblue;
+  border-top: 5px solid white;
+  /* background-color: lightblue; */
   
 }
 

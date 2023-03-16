@@ -16,66 +16,68 @@
   </div>
 </section>
 
-<div class="buttons">
-  {% if user.is_authenticated %}
 
-    {% if user|on_wishlist:course %}
-    <form action="{% url 'course_remove_wishlist' course.id %}" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-    <button type="submit" id="remove-from-button" class="wishlist-button">REMOVE FROM WISHLIST</button>
-    </form>
-
-    {% else %}
-    <form action="{% url 'course_add_wishlist' course.id %}" method="post">
-      {% csrf_token %}
-      <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-    <button type="submit" id="add-to-button" class="wishlist-button">ADD TO WISHLIST</button>
-    </form>
-    {% endif %}
-    {% endif %}
-
-
-
-  {% if user.is_authenticated %}
-
-  {% if user|on_playedlist:course %}
-  <form action="{% url 'course_remove_playedlist' course.id %}" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-  <button type="submit"  id="remove-from-button" class="played-button">REMOVE FROM PLAYED COURSES</button>
-  </form>
-
-  {% else %}
-  <form action="{% url 'course_add_playedlist' course.id %}" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-  <button type="submit"  id="add-to-button" class="played-button">ADD TO PLAYED COURSES</button>
-  </form>
-    {% endif %}
-    {% endif %}
-
-
-
-    {% if user.is_authenticated %}
-    <a href="{% url 'leave_review' course.id %}"><button id="add-to-button" class="leave-review-button">LEAVE A REVIEW</button></a>
-    {% endif %}
-
-
-
-</div>
-
-<div class="description-and-booking">
-  <h4 class="course-full-description">"{{ course.description }}"</h4>
-  <div class="course-images">
-    <img src="/static/images/pexels-kaique-rocha-105253.jpg" class="course-description__image1">
-    <div class="course-images__2-3">
-      <img src="/static/images/pexels-branislav-bednár-5716652.jpg" class="course-description__image2">
-      <img src="/static/images/pexels-matt-barnard-6871278.jpg" class="course-description__image3">
+<div class="course-db-images">
+  <div class="description-and-booking">
+    <h4 class="course-full-description">"{{ course.description }}"</h4>
+    <div class="buttons">
+      {% if user.is_authenticated %}
+    
+        {% if user|on_wishlist:course %}
+        <form action="{% url 'course_remove_wishlist' course.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+        <button type="submit" id="remove-from-button" class="wishlist-button">REMOVE FROM WISHLIST</button>
+        </form>
+    
+        {% else %}
+        <form action="{% url 'course_add_wishlist' course.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+        <button type="submit" id="add-to-button" class="wishlist-button">ADD TO WISHLIST</button>
+        </form>
+        {% endif %}
+        {% endif %}
+    
+    
+    
+      {% if user.is_authenticated %}
+    
+      {% if user|on_playedlist:course %}
+      <form action="{% url 'course_remove_playedlist' course.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+      <button type="submit"  id="remove-from-button" class="played-button">REMOVE FROM PLAYED COURSES</button>
+      </form>
+    
+      {% else %}
+      <form action="{% url 'course_add_playedlist' course.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+      <button type="submit"  id="add-to-button" class="played-button">ADD TO PLAYED COURSES</button>
+      </form>
+        {% endif %}
+        {% endif %}
+    
+    
+    
+        {% if user.is_authenticated %}
+        <a href="{% url 'leave_review' course.id %}"><button id="add-to-button" class="leave-review-button">LEAVE A REVIEW</button></a>
+        {% endif %}
+    
+    
+    
     </div>
-  </div>  
-</div>    
-      
+    </div>  
+
+    <div class="course-images">
+      <img src="/static/images/pexels-kaique-rocha-105253.jpg" class="course-description__image1">
+      <div class="course-images__2-3">
+        <img src="/static/images/pexels-branislav-bednár-5716652.jpg" class="course-description__image2">
+        <img src="/static/images/pexels-matt-barnard-6871278.jpg" class="course-description__image3">
+        </div>
+    </div>    
+  </div>
       <section class="course-content">
         <!-- COURSE STATS -->
         <!-- <div class="course-stats">
@@ -99,9 +101,9 @@
     <div class="title-filter">
       <h3 class="subheading">All Reviews</h3>
 
-
-      <form method="get"  action="{% url 'course_details' course.id %}"> 
-        <select name="star-rating" class="star-dropdown">
+      
+      <form method="get"  action="{% url 'course_details' course.id %}" class="review-form-div"> 
+        <select name="star-rating" id="ratings-filter-button" class="star-dropdown">
           <option disabled selected>By Rating</option>
           <option value="1">1</option>
           <option value="2">2</option>

@@ -15,7 +15,7 @@ def add_wishlist(request, id):
     user_id = request.user.id
     if request.method =="POST":
         request.user.profile.wishlist.add(course)
-    return redirect('information_my_courses', id=user_id)
+    return redirect('course_details', id=user_id)
 
 @login_required
 def remove_wishlist(request, id):
@@ -23,7 +23,7 @@ def remove_wishlist(request, id):
     user_id = request.user.id
     if request.method =="POST":
         request.user.profile.wishlist.remove(course)
-    return redirect('information_my_courses', id=user_id)
+    return redirect('course_details', id=user_id)
 
 @login_required
 def add_playedlist(request, id):
@@ -31,7 +31,7 @@ def add_playedlist(request, id):
     user_id = request.user.id
     if request.method =="POST":
         request.user.profile.played_list.add(course)
-    return redirect('information_my_courses', id=user_id)
+    return redirect('course_details', id=user_id)
 
 @login_required
 def remove_playedlist(request, id):
@@ -39,7 +39,7 @@ def remove_playedlist(request, id):
     user_id = request.user.id
     if request.method =="POST":
         request.user.profile.played_list.remove(course)
-    return redirect('information_my_courses', id=user_id)
+    return redirect('course_details', id=user_id)
 
 
 
