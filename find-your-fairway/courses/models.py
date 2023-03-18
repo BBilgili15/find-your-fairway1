@@ -37,9 +37,11 @@ class Review(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 
+    # related names below should really be something like "user"
     wishlist = models.ManyToManyField(Course, blank=True, null=True, related_name="wishlist")
     played_list = models.ManyToManyField(Course, blank=True, null=True, related_name="played_list")
+    friends = models.ManyToManyField(User, blank=True, null=True, related_name="friends")
 
     def __str__(self):
-      return f"{self.id}"
+      return f"{self.id}: {self.user.username}"
     

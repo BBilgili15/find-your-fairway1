@@ -64,6 +64,8 @@ def home(request):
 
     courses = Course.objects.filter(**filters)
 
+    # average_rating = Course.average_rating etc etc
+
     context = {
         "courses": courses
     }
@@ -79,7 +81,8 @@ def my_courses(request, id):
         "user": user,
         # "courses": Course.objects.all()
         "courses_wishlist": user.profile.wishlist.all(),
-        "courses_played_list": user.profile.played_list.all()
+        "courses_played_list": user.profile.played_list.all(),
+        "friends": user.profile.friends.all()
     }
 
     return render(request, 'information/my_courses.html', context)

@@ -13,13 +13,26 @@
             </div>
         </div>
 
-        <!-- <div id="my-courses__section" class="user-passport">
-            <div class="user-information">
-                <p><span class="bold">My Handicap</span> | 1.4</p>
-                <p><span class="bold">Courses Played</span> | 49</p>
-                <p><span class="bold">Rank</span> | Seasoned Pro</p>
-            </div>
-        </div> -->
+
+        <div class="friends">
+            <h3 class="friend-card__title">Friends</h3>
+            
+                <div class="friend-card__section">
+                    {% for friend in friends %}
+                    <!-- Try and make it so that clicking on the friend takes you to their page -->
+                    <a href="{% url 'information_my_courses' friend.id %}"><div class="friend-card">
+                        <img src="/static/images/image_placeholder.jpg" class="friend-card__image">
+                        <div class="friend-card__username-section">
+                            <p class="friend-card__username">{{ friend.username }}</p>
+                        </div>
+                    </div></a>
+                    {% endfor %}
+                </div>
+                
+                
+                
+            
+        </div>
 
 
         <!-- <div class="social-icons">
