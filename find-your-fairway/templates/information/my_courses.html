@@ -13,11 +13,15 @@
             <h5 class="username">{{ user.username }}</h5>
                     <!-- Linked to event-filter -->
             {% if user in request.user.profile.friends.all %}
-                <p>remove friend</p>
-                <img class="add-remove-friend__icon" src="/static/images/icons/minus-svgrepo-com.svg">
+                <div class="remove-friend" id="friend-button">
+                    <p>remove friend </p>
+                    <img class="add-remove-friend__icon" src="/static/images/icons/minus-svgrepo-com.svg">
+                </div>
             {% else %}
-                <p>add friend</p>
-                <img class="add-remove-friend__icon" src="/static/images/icons/plus-svgrepo-com.svg">
+                <div class="add-friend" id="friend-button">
+                    <p>add friend </p>
+                    <img class="add-remove-friend__icon"  src="/static/images/icons/plus-svgrepo-com.svg">
+                </div>
             {% endif %} 
         </div>
         

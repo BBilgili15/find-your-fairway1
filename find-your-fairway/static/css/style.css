@@ -501,8 +501,35 @@ a{
   margin-top: 0.75rem;
 }
 
+.add-friend{
+  display: flex;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 2px 5px;
+}
+
+.remove-friend{
+  display: flex;
+  background-color: black;
+  border-radius: 1rem;
+  color: white;
+  border: 1px solid white;
+  padding: 2px 5px;
+}
+
+#friend-button{
+  margin-top: 5px;
+}
+
+#friend-button:hover{
+  cursor: pointer;
+  transition: 0.25s;
+}
+
 .add-remove-friend__icon{
   height: 1rem;
+  margin-left: 5px;
 }
 
 .friends{
@@ -604,7 +631,7 @@ a{
   margin-bottom: 1rem;
   border: 5px solid white; 
   box-shadow: 0.1px 0.1px 5px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .placeholder:hover {
