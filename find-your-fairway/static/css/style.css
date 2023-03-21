@@ -318,7 +318,23 @@ a{
   transition: 0.25s;
 }
 
+.book-now__button{
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: rgb(12, 12, 45);
+  color: white;
+  font-weight: bold;
+  width: 16rem;
+  border-radius: 1rem;
+  text-align: center;
+}
 
+.book-now__button:hover{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transition: 0.25s;
+}
 
 
 .reviews-section{
@@ -332,44 +348,61 @@ a{
 }
 
 
-.subheading{
-  /* border: 2px solid black; */
-  padding: 0.1rem 1rem 0.1rem 1rem;
-  width: 15%;
-  margin-left: 2rem;
-  margin-right: 1rem;
-  /* background-color: white; */
-  text-align: center;
-  border-radius: 1rem;
-}
-
 .title-filter{
   display: flex;
   /* border: 1px solid black; */
   padding: 0.25rem 0.5rem;
+  align-items: center;
 }
+
+.review-badge{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-right: 2rem;
+}
+
+.review-badge__content{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subheading{
+  /* font-weight: 100; */
+}
+
+.out-of-five{
+  font-weight: 100;
+  font-size: 1rem;
+}
+
 
 .review-form-div{
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid black;
+  /* border: 2px solid black; */
+  box-shadow: 5px 5px 6px rgba(0,0,0,0.3);
+  border-radius: 1rem;
+  max-height: 50px;
+  padding: 0.5rem
 }
 
-.review-form-div:hover {
+.orange-hover:hover{
+  color: orange;
   cursor: pointer;
   transition: 0.25s;
 }
-
-/* .star-dropdown{
-  width: 7.5rem;
-  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  color: black;
-  font-weight: bold;
-  border: 2px solid black;
-  border-radius: 1rem;
-} */
 
 #ratings-filter-button{
   /* padding: 0.25rem 0.5rem 0.25rem 0.5rem; */
@@ -402,12 +435,12 @@ a{
 
 .review-tile{
   background-color: white;
-  border: 2px solid black;
+  min-width: 175px;
   width: 15%;
   height: 11rem;
   margin: 2rem 1rem;
   padding: 1rem 0.5rem;
-  box-shadow: 3px 4px 5px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 6px rgba(0,0,0,0.3);
   border-radius: 1rem;
 }
 
@@ -428,7 +461,6 @@ a{
 
 .review-date{
   margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
 }
 
 .rating-user{
@@ -440,7 +472,7 @@ a{
 
 .review-description{
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .reviewer-name{
@@ -464,15 +496,20 @@ a{
 }
 
 .top-section{
-  /* background-color: lightblue; */
   display: flex;
   justify-content: space-evenly;
   margin-top: 0.75rem;
 }
 
+.add-remove-friend__icon{
+  height: 1rem;
+}
+
 .friends{
   /* background-color: lightblue; */
   width: 35rem;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
   /* display: flex;
   flex-direction: column; */
 }
@@ -503,6 +540,11 @@ a{
   margin: 0.25rem 0.25rem;
   width: 10rem;
   flex: 1;
+}
+
+.friend-card:hover{
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  transition: 0.25s;
 }
 
 .friend-card__image{
@@ -557,10 +599,12 @@ a{
 
 .placeholder{
   height: 10rem;
+  width: 10rem;
   border-radius: 50%;
   margin-bottom: 1rem;
   border: 5px solid white; 
   box-shadow: 0.1px 0.1px 5px;
+  object-fit: fill;
 }
 
 .placeholder:hover {
@@ -662,7 +706,7 @@ a{
 
 .user_golf-course__image{
   width: 100%;
-  height: 100%;
+  height: 8rem;
   display: block;
   object-fit: cover;
   border-top-right-radius: 15px;

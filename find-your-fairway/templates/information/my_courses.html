@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load event_filters %}
 {% load static %}
 
 {% block content %}
@@ -8,9 +9,22 @@
 
         <div class="user-details">
             <div class="image-name">
-            <img class="placeholder" src="/static/images/profile_pic_ben.jpg" alt="placeholder">
+            <img class="placeholder" src="{{ user.profile.profile_picture.url }}" alt="placeholder">
             <h5 class="username">{{ user.username }}</h5>
-            </div>
+                    <!-- Linked to event-filter -->
+            {% if user in request.user.profile.friends.all %}
+                <p>remove friend</p>
+                <img class="add-remove-friend__icon" src="/static/images/icons/minus-svgrepo-com.svg">
+            {% else %}
+                <p>add friend</p>
+                <img class="add-remove-friend__icon" src="/static/images/icons/plus-svgrepo-com.svg">
+            {% endif %} 
+        </div>
+        
+
+
+
+
         </div>
 
 
@@ -19,7 +33,6 @@
             
                 <div class="friend-card__section">
                     {% for friend in friends %}
-                    <!-- Try and make it so that clicking on the friend takes you to their page -->
                     <a href="{% url 'information_my_courses' friend.id %}"><div class="friend-card">
                         <img src="/static/images/image_placeholder.jpg" class="friend-card__image">
                         <div class="friend-card__username-section">
@@ -56,10 +69,10 @@
             {% for course in courses_wishlist %}
             <a class="course-link"  href="{% url 'course_details' course.id %}">
                 <div class="user_golf-course__item">
-                    <img class="user_golf-course__image" src="/static/images/royal_dornoch.jpg">
+                    <img class="user_golf-course__image" src="{{ course.profile_picture.url }}">
                     <div class="user_golf-course__content">
                         <h3 class="user_golf-course__name">{{ course.name }}</h3>
-                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.get_average }}/5</h4>
                     </div>
                 </div>
             </a>
@@ -80,10 +93,10 @@
             {% for course in courses_played_list %}
             <a class="course-link"  href="{% url 'course_details' course.id %}">
                 <div class="user_golf-course__item">
-                    <img class="user_golf-course__image" src="/static/images/royal_dornoch.jpg">
+                    <img class="user_golf-course__image" src="{{ course.profile_picture.url }}">
                     <div class="user_golf-course__content">
                         <h3 class="user_golf-course__name">{{ course.name }}</h3>
-                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+                        <h4 class="user_golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.get_average }}/5</h4>
                     </div>
                 </div>
             </a>

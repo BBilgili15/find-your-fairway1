@@ -63,7 +63,7 @@ def add_review(request, id):
         description = request.POST.get("description")
         
         # In future amend to whoever is logged in 
-        reviewer = get_object_or_404(User, id=request.user.id) 
+        reviewer = get_object_or_404(User, id=2) 
         # Rating == rating written 
         rating = request.POST.get("rating")
 

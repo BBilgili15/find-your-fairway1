@@ -29,10 +29,10 @@
 {% for course in courses %}
 
   <a class="course-link"  href="{% url 'course_details' course.id %}"><div class="golf-course__item">
-      <img class="golf-course__image" src="/static/images/royal_dornoch.jpg">
+      <img class="golf-course__image" src="{{ course.profile_picture.url }}">
       <div class="golf-course__content">
         <h3 class="golf-course__name">{{ course.name }}</h3>
-        <h4 class="golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.average_rating }}/5</h4>
+        <h4 class="golf-course__info">Par: {{ course.par }}  |  Average Rating: {{ course.get_average }}/5</h4>
       </div>
     </div></a>
     {% endfor %}

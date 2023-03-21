@@ -1,5 +1,5 @@
 from . import views
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path("details/<int:id>", views.course, name="course_details"),
@@ -9,3 +9,6 @@ urlpatterns = [
     # below is url to take you to review page
     path("details/<int:id>/review", views.leave_review, name="leave_review")
 ]
+
+
+

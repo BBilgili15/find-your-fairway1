@@ -12,34 +12,30 @@ from courses.forms import SignUpForm
 @login_required
 def add_wishlist(request, id):
     course = get_object_or_404(Course, id=id)
-    user_id = request.user.id
     if request.method =="POST":
         request.user.profile.wishlist.add(course)
-    return redirect('course_details', id=user_id)
+    return redirect('course_details', id=id)
 
 @login_required
 def remove_wishlist(request, id):
     course = get_object_or_404(Course, id=id)
-    user_id = request.user.id
     if request.method =="POST":
         request.user.profile.wishlist.remove(course)
-    return redirect('course_details', id=user_id)
+    return redirect('course_details', id=id)
 
 @login_required
 def add_playedlist(request, id):
     course = get_object_or_404(Course, id=id)
-    user_id = request.user.id
     if request.method =="POST":
         request.user.profile.played_list.add(course)
-    return redirect('course_details', id=user_id)
+    return redirect('course_details', id=id)
 
 @login_required
 def remove_playedlist(request, id):
     course = get_object_or_404(Course, id=id)
-    user_id = request.user.id
     if request.method =="POST":
         request.user.profile.played_list.remove(course)
-    return redirect('course_details', id=user_id)
+    return redirect('course_details', id=id)
 
 
 
