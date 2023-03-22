@@ -33,6 +33,7 @@ class Course(models.Model):
       return round(average_score, 1)
 
 
+
   # This ain't working - course rank (get the INDEX of the position in list - should be ok)
 
   # def get_ranking(self):
@@ -81,4 +82,5 @@ class UserProfile(models.Model):
 
     def __str__(self):
       return f"{self.id}: {self.user.username}"
+
     

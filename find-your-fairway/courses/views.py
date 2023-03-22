@@ -1,24 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Course, Review, User
 
-# Create your views here.
-# def course(request, id):
 
-#   print(Course.objects.get(id=id))
-
-#   context = {
-#     "course": get_object_or_404(Course, id=id),
-#     "reviews": Review.objects.filter(course=id)
-#   }
-
-#   return render(request, 'courses/details.html', context)
-
-def course(request, id):
-    
+def course(request, id):   
     query_params = request.GET
-
     reviews = Review.objects.filter(course=id)
-
+    
     filter_map = {
         "star-rating": "rating",
     }
@@ -30,6 +17,8 @@ def course(request, id):
             filters[filter_key] = value
 
     reviews = reviews.filter(**filters)
+
+    print(reviews)
 
     context = {
       "course": get_object_or_404(Course, id=id),
@@ -62,8 +51,7 @@ def add_review(request, id):
         # Description == what's written in input
         description = request.POST.get("description")
         
-        # In future amend to whoever is logged in 
-        reviewer = get_object_or_404(User, id=2) 
+        reviewer = get_object_or_404(User, id=request.user.id) 
         # Rating == rating written 
         rating = request.POST.get("rating")
 

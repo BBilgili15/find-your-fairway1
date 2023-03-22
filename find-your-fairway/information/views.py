@@ -9,6 +9,8 @@ from courses.forms import SignUpForm
 
 
 # Create your views here.
+
+# Add/Remove from Wishlist/Playedlist
 @login_required
 def add_wishlist(request, id):
     course = get_object_or_404(Course, id=id)
@@ -38,7 +40,18 @@ def remove_playedlist(request, id):
     return redirect('course_details', id=id)
 
 
+# Add/Remove Friend
+def remove_friend(request, id):
+    friend = get_object_or_404(User, id=id)
+    if request.method =="POST":
+        request.user.profile.friends.remove(friend)
+    return redirect('information_my_courses', id=id)
 
+def add_friend(request, id):
+    friend = get_object_or_404(User, id=id)
+    if request.method =="POST":
+        request.user.profile.friends.add(friend)
+    return redirect('information_my_courses', id=id)
 
 
 

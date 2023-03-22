@@ -10,7 +10,7 @@
 
 
     <!-- THIS SECTION TO BE CONTINUED - EVERYTHING WILL NEED TO BE DYNAMIC EVENTUALLY -->
-<section class="course-details__banner">
+<section class="course-details__banner" style="background-image: url( '{{ course.profile_picture.url }}')">
   <div class="overlay">
     <h2 class="course-name">{{ course.name }}</h2>
   </div>
@@ -116,7 +116,7 @@
     </div>
       <div class="reviews-list">
         {% for review in reviews %}
-        <div class="review-tile">
+        <a href="{% url 'information_my_courses' review.reviewer.id %}"><div class="review-tile">
           <div class="review-stars">
 
             {% for count in reviews_count %}
@@ -133,7 +133,7 @@
           <div class="review-content">
             <p class="review-description">"{{ review.description }}"</p>
           </div>
-        </div>
+        </div></a>
         {% endfor %}
       </div>
   </div>

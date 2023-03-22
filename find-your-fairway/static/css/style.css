@@ -201,7 +201,7 @@ a{
   background-size: cover;
   margin: 0 10rem;
   min-width: 800px;
-  background-image: url(https://images.pexels.com/photos/914682/pexels-photo-914682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /* background-image: url({{ course.profile_picture.url }}); */
   background-position: center;
   height: 15rem;
   border-bottom: 5px solid white;
@@ -238,14 +238,14 @@ a{
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: left;
+  justify-content:start;
   /* background-color: lightcoral; */
 }
 
 .course-full-description{
   width: 25rem;
-  text-align: center;
+  text-align: left;
   font-style: italic;
 }
 
@@ -284,7 +284,6 @@ a{
   width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 #add-to-button, #remove-from-button{
@@ -436,12 +435,13 @@ a{
 .review-tile{
   background-color: white;
   min-width: 175px;
-  width: 15%;
+  width: 10rem;
   height: 11rem;
   margin: 2rem 1rem;
   padding: 1rem 0.5rem;
   box-shadow: 5px 5px 6px rgba(0,0,0,0.3);
   border-radius: 1rem;
+  color: black;
 }
 
 .review-stars{
@@ -456,7 +456,7 @@ a{
 
 .reviews-list{
   display: flex;
-  gap: 1rem;
+  /* gap: 1rem; */
 }
 
 .review-date{
@@ -490,7 +490,7 @@ a{
 }
 
 .my_courses__body{
-  margin: 0 10rem;
+  margin: 1rem 10rem;
   display: flex;
   flex-direction: column;
 }
@@ -503,19 +503,27 @@ a{
 
 .add-friend{
   display: flex;
-  background-color: white;
-  border: 1px solid black;
+  background-color: orange;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid black; */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   border-radius: 1rem;
-  padding: 2px 5px;
+  padding: 3px 6px;
+  font-size: 0.75rem;
 }
 
 .remove-friend{
   display: flex;
-  background-color: black;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
   border-radius: 1rem;
-  color: white;
-  border: 1px solid white;
-  padding: 2px 5px;
+  color: black;
+  /* border: 2px solid black; */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  padding: 3px 6px;
+  font-size: 0.75rem;
 }
 
 #friend-button{
@@ -533,10 +541,10 @@ a{
 }
 
 .friends{
-  /* background-color: lightblue; */
+  /* background-color: lightgray; */
   width: 35rem;
-  border-left: 4px solid white;
-  border-right: 4px solid white;
+  /* border-left: 4px solid white; */
+  /* border-right: 4px solid white; */
   /* display: flex;
   flex-direction: column; */
 }

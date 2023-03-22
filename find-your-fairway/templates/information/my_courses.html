@@ -11,17 +11,36 @@
             <div class="image-name">
             <img class="placeholder" src="{{ user.profile.profile_picture.url }}" alt="placeholder">
             <h5 class="username">{{ user.username }}</h5>
-                    <!-- Linked to event-filter -->
+
+                    
             {% if user in request.user.profile.friends.all %}
-                <div class="remove-friend" id="friend-button">
-                    <p>remove friend </p>
-                    <img class="add-remove-friend__icon" src="/static/images/icons/minus-svgrepo-com.svg">
-                </div>
+
+                {% if user.username != request.user.username %}
+                    <form action="{% url 'remove_friend' user.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                    <button class="remove-friend" id="friend-button" type="submit">
+                        <p>REMOVE FRIEND</p>
+                        <img class="add-remove-friend__icon" src="/static/images/icons/minus-svgrepo-com (1).svg">
+                    </button>
+                    </form>
+                {% endif %}
+
+
             {% else %}
-                <div class="add-friend" id="friend-button">
-                    <p>add friend </p>
-                    <img class="add-remove-friend__icon"  src="/static/images/icons/plus-svgrepo-com.svg">
-                </div>
+
+                {% if user.username != request.user.username %}
+                    <form action="{% url 'add_friend' user.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                        <button class="add-friend" id="friend-button" type="submit">
+                            <p>ADD FRIEND</p>
+                            <img class="add-remove-friend__icon"  src="/static/images/icons/plus-svgrepo-com (1).svg">
+                        </button>
+                    </form>
+                {% endif %}
+
+            
             {% endif %} 
         </div>
         

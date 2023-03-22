@@ -9,11 +9,12 @@ urlpatterns = [
     path('register', views.register, name="register"),
 
     # Making add to wishlist/played list
-
-    # ADDED/REMOVED THE / AT THE END OF THE URL
-
     path('<int:id>/add_wishlist', views.add_wishlist, name="course_add_wishlist"),
     path('<int:id>/remove_wishlist', views.remove_wishlist, name="course_remove_wishlist"),
     path('<int:id>/add_playedlist', views.add_playedlist, name="course_add_playedlist"),
-    path('<int:id>/remove_playedlist', views.remove_playedlist, name="course_remove_playedlist")
+    path('<int:id>/remove_playedlist', views.remove_playedlist, name="course_remove_playedlist"),
+
+
+    path('<int:id>/remove_friend', views.remove_friend, name="remove_friend"),
+    path('<int:id>/add_friend', views.add_friend, name="add_friend")
 ]
