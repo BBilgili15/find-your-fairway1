@@ -57,7 +57,7 @@
                 <div class="friend-card__section">
                     {% for friend in friends %}
                     <a href="{% url 'information_my_courses' friend.id %}"><div class="friend-card">
-                        <img src="/static/images/image_placeholder.jpg" class="friend-card__image">
+                        <img src="{{ friend.profile.profile_picture.url }}" class="friend-card__image">
                         <div class="friend-card__username-section">
                             <p class="friend-card__username">{{ friend.username }}</p>
                         </div>

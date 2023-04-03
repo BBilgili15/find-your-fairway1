@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_nk29j!bn16t&pt%v-+)+a=^+hzv!d4)z+vtkp%1qz)tft4o*('
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# amended below ahead of launching!!!!!!!!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'find_your_fairway.urls'
@@ -121,7 +123,7 @@ USE_TZ = True
 STATICFILES_DIRS = ['static']
 STATIC_URL = '/static/'
 
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
@@ -132,3 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+CSRF_TRUSTED_ORIGINS = ['https://find-your-fairway.fly.dev/register']

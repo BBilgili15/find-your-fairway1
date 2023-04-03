@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from courses.forms import SignUpForm
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -96,7 +97,7 @@ def my_courses(request, id):
 
     return render(request, 'information/my_courses.html', context)
 
-
+@csrf_exempt
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('information_home')
@@ -122,11 +123,13 @@ def loginPage(request):
         return render(request, 'information/login.html', context)
 
 
+@csrf_exempt
 def logoutUser(request):
     logout(request)
     return redirect('login')
 
 
+@csrf_exempt
 def register(request):
     if request.user.is_authenticated:
         return redirect('information_home')

@@ -705,6 +705,8 @@ a{
   justify-content: center;
   align-items: end;
   margin-left: 2rem;
+  overflow-x: auto;
+  background-color: lightpink;
 } 
 
 
